@@ -18,11 +18,11 @@
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 </div>
 
-## Recursos Principais
-- [✔] Criar um cronômetro
-- [✔] Interrupção do cronômetro
-- [✔] Registrar o histórico do cronômetro
-- [✔] Persistir dados no armazenamento local
+### Ajustes e melhorias
+- [x] Criar um cronômetro
+- [x] Interrupção do cronômetro
+- [x] Registrar o histórico do cronômetro
+- [ ] Persistir dados no armazenamento local
 
 ## Ambiente nodeJs
 * node `<v18.17.1>`
