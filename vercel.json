@@ -1,12 +1,5 @@
 {
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/"
-    },
-    {
-      "src": "/history",
-      "dest": "/history"
-    }
-  ]
+  "rewrites":  [
+      {"source": "/(.*)", "destination": "/"}
+   ]
 }
