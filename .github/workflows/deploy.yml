@@ -1,41 +1,51 @@
-name: Deploy da Aplicação
+name: Deploy
 
 on:
   push:
     branches:
-      - main  # Substitua "main" pelo nome da sua branch principal
+      - main
 
 jobs:
-  deploy:
-    name: Deploy da Aplicação
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do Repositório
+      - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
-          node-version: 16  # Substitua pela versão desejada do Node.js
+          node-version: 16
 
-      - name: Instalar Dependências
-        run: npm install  # Substitua por comando de instalação de dependências do seu projeto
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
 
-      - name: Construir a Aplicação
-        run: npm run build  # Substitua pelo comando de build da sua aplicação
+      - name: Build project
+        run: npm run build
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v2
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
         with:
-          host: seu_servidor_ssh
-          username: seu_usuario_ssh
-          key: ${{ secrets.SSH_PRIVATE_KEY }}  # Configure a chave SSH como um segredo no GitHub
-          script: |
-            # Comandos para fazer o deploy da aplicação
-            # Substitua "seu_servidor_ssh" e "seu_usuario_ssh" pelas suas informações
+          name: production-files
+          path: ./dist
 
-      # Outras etapas que você deseja adicionar, como notificações de sucesso ou falha
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
 
-
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
