@@ -1,7 +1,7 @@
 # IGNITE_TIMER
 
 ![Group 1](https://github.com/Shintakuenzou/IGNITE_TIMER/assets/91697813/1524cf75-0dad-4e20-926e-cad79d45406d)
-> O projeto IGNITW_TIMER é uma aplicação SPA de que permite ao usuário cronometrar as suas tarefas no dia a dia, além de permitir ver um histórico de todos as tarefas já realizadas. `Quero testar:` <a href=" https://ignite-timer-nine-mu.vercel.app/" target="_blank"> https://ignite-timer-nine-mu.vercel.app/</a>
+> O projeto IGNITW_TIMER é uma aplicação SPA de que permite ao usuário cronometrar as suas tarefas no dia a dia, além de permitir ver um histórico de todos as tarefas já realizadas. `Quero testar:` <a href="https://ignite-timer-seven-liart.vercel.app" target="_blank"> https://ignite-timer-nine-mu.vercel.app/</a>
 
 <h4 align="left">Languages and Tools:</h4>
 <div>
